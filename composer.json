@@ -1,0 +1,67 @@
+{
+    "name": "angelblanco/mongodb",
+    "description": "A MongoDB based Eloquent model and Query builder for Laravel",
+    "keywords": [
+        "laravel",
+        "eloquent",
+        "mongodb",
+        "mongo",
+        "database",
+        "model",
+        "moloquent"
+    ],
+    "homepage": "https://github.com/angelblanco/laravel-mongodb",
+    "authors": [
+        {
+            "name": "Ángel Blanco",
+            "homepage": "https://angelblanco.dev"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.3",
+        "illuminate/support": "^8.0",
+        "illuminate/container": "^8.0",
+        "illuminate/database": "^8.0",
+        "illuminate/events": "^8.0",
+        "mongodb/mongodb": "^1.6",
+        "ext-mongodb": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.4",
+        "orchestra/testbench": "^6.0",
+        "mockery/mockery": "^1.4.2",
+        "doctrine/dbal": "^2.6",
+        "ext-mongodb": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "AngelBlanco\\Mongodb\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AngelBlanco\\Mongodb\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AngelBlanco\\Mongodb\\MongodbServiceProvider",
+                "AngelBlanco\\Mongodb\\MongodbQueueServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "lint": "prettier --write '**/*.{php,md}' && php-cs-fixer fix",
+        "docker:test": "docker-compose down && docker-compose up --build --exit-code-from=php",
+        "docker:local": "docker-compose -f docker-compose.yml -f docker-compose.local.yml",
+        "docker:local:run": "docker-compose -f docker-compose.yml -f docker-compose.local.yml run --rm php bash",
+        "docker:local:bash": "docker-compose down && composer docker:local build && composer docker:local:run"
+    },
+    "config": {
+        "process-timeout": 0
+    }
+}

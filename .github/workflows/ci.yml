@@ -1,0 +1,32 @@
+name: Continuos Integration
+
+on:
+  push:
+    branches:
+    tags:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: PHP ${{ matrix.php }} with Mongo DB ${{ matrix.mongodb }}
+    strategy:
+      matrix:
+        php: [ 7.3, 7.4 ]
+        mongodb: [ 3.6, '4.0', 4.2, 4.4 ]
+        # include:
+        #   - php: 8.0-rc
+        #     mongodb: latest
+        #     experimental: true
+    env:
+      PHP_VERSION: ${{ matrix.php }}
+      MONGODB_VERSION: ${{ matrix.mongodb }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Shows docker compose config
+        run: docker-compose config
+
+      - name: Run tests on docker compose
+        run: docker-compose up --build --exit-code-from=php

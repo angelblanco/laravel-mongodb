@@ -1,0 +1,33 @@
+name: Code Style
+
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: PHP CS Fixer
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup PHP with tools
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: php-cs-fixer
+
+      - name: Prettier
+        run: |
+          yarn global add prettier @prettier/plugin-php
+          `yarn global bin`/prettier --write '**/*.{php,md}'
+
+      - name: PHP CS Fixer
+        run: |
+          php-cs-fixer fix
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: ':zap: CI format code!'
