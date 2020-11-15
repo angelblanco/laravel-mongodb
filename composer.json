@@ -55,6 +55,7 @@
     },
     "scripts": {
         "test": "phpunit",
+        "test-coverage": "phpunit --coverage-clover=coverage/report.xml",
         "lint": "prettier --write '**/*.{php,md}' && php-cs-fixer fix",
         "docker:test": "docker-compose down && docker-compose up --build --exit-code-from=php",
         "docker:local": "docker-compose -f docker-compose.yml -f docker-compose.local.yml",

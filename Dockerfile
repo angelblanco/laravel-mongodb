@@ -25,4 +25,4 @@ RUN composer install --no-autoloader
 ADD . .
 RUN composer install
 
-CMD ["./wait-for-it.sh", "mysql:3306", "--", "composer", "test"]
+CMD ["./wait-for-it.sh", "mysql:3306", "--", "composer", "test-coverage"]

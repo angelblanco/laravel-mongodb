@@ -30,3 +30,17 @@ jobs:
 
       - name: Run tests on docker compose
         run: docker-compose up --build --exit-code-from=php
+
+      - name: Scan with sonarcloud
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          args: >
+            -Dsonar.test.exclusions=tests/**
+            -Dsonar.tests=tests/
+            -Dsonar.php.coverage.reportPaths=coverage/report.xml
+            -Dsonar.verbose=true
+
+        if: matrix.php == '7.4' && matrix.mongodb == '4.4'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

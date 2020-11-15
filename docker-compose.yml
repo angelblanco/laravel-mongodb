@@ -11,6 +11,8 @@ services:
     depends_on:
       - mongodb
       - mysql
+    volumes:
+      - coverage:/home/lib/coverage
 
   mysql:
     container_name: mysql

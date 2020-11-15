@@ -11,3 +11,4 @@ composer.lock
 /node_modules
 /wait-for-it.sh
 /*.cache
+/coverage
