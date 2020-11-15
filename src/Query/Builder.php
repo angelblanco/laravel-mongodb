@@ -1098,7 +1098,7 @@ class Builder extends BaseBuilder
             }
 
             // Convert to regular expression.
-            $regex = preg_replace('#(^|[^\\\])%#', '$1.*', preg_quote($value));
+            $regex = preg_replace("#(^|[^\\\])%#", '$1.*', preg_quote($value));
             $plain_value = $value;
 
             // Convert like to regular expression.
