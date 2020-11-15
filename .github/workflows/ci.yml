@@ -35,6 +35,8 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@master
         with:
           args: >
+            -Dsonar.organization=angelblanco
+            -Dsonar.projectKey=angelblanco_laravel-mongodb
             -Dsonar.test.exclusions=tests/**
             -Dsonar.tests=tests/
             -Dsonar.php.coverage.reportPaths=coverage/report.xml
