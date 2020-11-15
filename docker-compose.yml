@@ -12,7 +12,7 @@ services:
       - mongodb
       - mysql
     volumes:
-      - coverage:/home/lib/coverage
+      - ./coverage:/home/lib/coverage
 
   mysql:
     container_name: mysql
