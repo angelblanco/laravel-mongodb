@@ -31,21 +31,11 @@ jobs:
       - name: Run tests on docker compose
         run: docker-compose up --build --exit-code-from=php
 
-      - name: List reports
+      - name: List reports and convert to sonarcloud
         run: ls reports -lh
 
       - name: Scan with sonarcloud
         uses: sonarsource/sonarcloud-github-action@master
-        with:
-          args: >
-            -Dsonar.organization=angelblanco
-            -Dsonar.projectKey=angelblanco_laravel-mongodb
-            -Dsonar.test.exclusions=tests/**
-            -Dsonar.tests=tests/
-            -Dsonar.php.coverage.reportPaths=reports/coverage.xml
-            -Dsonar.php.tests.reportPath=reports/junit.xml
-            -Dsonar.verbose=true
-
         if: matrix.php == '7.4' && matrix.mongodb == '4.4'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
