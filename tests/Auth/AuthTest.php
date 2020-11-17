@@ -46,7 +46,7 @@ class AuthTest extends TestCase
             return;
         }
 
-        $mailer = Mockery::mock('Illuminate\Mail\Mailer');
+        $mailer = Mockery::mock("Illuminate\Mail\Mailer");
         $tokens = $this->app->make('auth.password.tokens');
         $users = $this->app['auth']->driver()->getProvider();
 

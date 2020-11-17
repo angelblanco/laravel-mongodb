@@ -58,8 +58,6 @@ class Builder extends \Illuminate\Database\Schema\Builder
      *
      * @param string  $collection
      * @param Closure $callback
-     *
-     * @return bool
      */
     public function collection($collection, Closure $callback)
     {
@@ -75,7 +73,7 @@ class Builder extends \Illuminate\Database\Schema\Builder
      */
     public function table($collection, Closure $callback)
     {
-        return $this->collection($collection, $callback);
+        $this->collection($collection, $callback);
     }
 
     /**

@@ -3,7 +3,7 @@ ARG PHP_VERSION
 FROM composer:latest
 FROM php:${PHP_VERSION}-cli
 
-WORKDIR /home/lib
+WORKDIR /github/workspace
 
 RUN apt-get update && \
     apt-get install -y autoconf pkg-config libssl-dev git libzip-dev zlib1g-dev unzip wget && \
@@ -25,4 +25,4 @@ RUN composer install --no-autoloader
 ADD . .
 RUN composer install
 
-CMD ["./wait-for-it.sh", "mysql:3306", "--", "composer", "test"]
+CMD ["./wait-for-it.sh", "mysql:3306", "--", "composer", "test-coverage"]

@@ -83,6 +83,6 @@ class User extends Eloquent implements AuthenticatableContract, CanResetPassword
 
     protected function serializeDate(DateTimeInterface $date)
     {
-        return $date->format('l jS \of F Y h:i:s A');
+        return $date->format("l jS \of F Y h:i:s A");
     }
 }
