@@ -3,7 +3,7 @@ version: '3'
 services:
     php:
         volumes:
-            - .:/home/lib
+            - .:/github/workspace
         entrypoint: []
         stdin_open: true
         tty: true

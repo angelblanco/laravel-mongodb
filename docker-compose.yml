@@ -12,7 +12,7 @@ services:
       - mongodb
       - mysql
     volumes:
-      - ./reports:/home/lib/reports
+      - ./reports:/github/workspace/reports
 
   mysql:
     container_name: mysql
