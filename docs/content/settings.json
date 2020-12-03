@@ -1,0 +1,10 @@
+{
+  "title": "Laravel Mongodb",
+  "url": "laravelmongodb.com",
+  "logo": {
+    "light": "/logo-light.svg",
+    "dark": "/logo-dark.svg"
+  },
+  "github": "angelblanco/laravel-mongodb",
+  "twitter": "@angelblancodev"
+}
