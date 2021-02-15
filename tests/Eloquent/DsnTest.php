@@ -7,7 +7,7 @@ use AngelBlanco\Mongodb\Tests\models\Address;
 
 class DsnTest extends TestCase
 {
-    public function test_dsn_works()
+    public function testDsnWorks()
     {
         $this->assertInstanceOf(
             \Illuminate\Database\Eloquent\Collection::class,
