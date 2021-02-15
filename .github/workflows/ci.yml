@@ -12,12 +12,8 @@ jobs:
     name: PHP ${{ matrix.php }} with Mongo DB ${{ matrix.mongodb }}
     strategy:
       matrix:
-        php: [ 7.3, 7.4 ]
+        php: [ 7.3, 7.4, '8.0' ]
         mongodb: [ 3.6, '4.0', 4.2, 4.4 ]
-        # include:
-        #   - php: 8.0-rc
-        #     mongodb: latest
-        #     experimental: true
     env:
       PHP_VERSION: ${{ matrix.php }}
       MONGODB_VERSION: ${{ matrix.mongodb }}
